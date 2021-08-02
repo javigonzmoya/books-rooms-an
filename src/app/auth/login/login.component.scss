@@ -1,0 +1,27 @@
+$bg-form-color: #d6ecf2;
+
+.contenedor-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.form-center {
+  width: 50%;
+  background-color: $bg-form-color;
+  padding: 15px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+.form-center img {
+  width: 25%;
+  height: 25%;
+  border-radius: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
