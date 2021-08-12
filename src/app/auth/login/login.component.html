@@ -1,40 +1,27 @@
 <div class="contenedor-center">
-  <form [formGroup]="loginForm" class="form-center">
+  <form [formGroup]="loginForm" (ngSubmit)='login()' class="form-center">
     <div class="center">
       <img src="../../../assets/img/userLog.png" alt="image1" />
     </div>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input
-        formControlName="email"
-        type="email"
-        class="form-control"
-        id="emailLogin"
-        aria-describedby="emailHelp"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input
-        formControlName="password"
-        type="password"
-        class="form-control"
-        id="passlog"
-      />
-    </div>
-    <div class="mb-3 form-check">
-      <input
-        formControlName="remember"
-        type="checkbox"
-        class="form-check-input"
-        id="exampleCheck1"
-      />
-      <label class="form-check-label" for="exampleCheck1"
-        >Recordar credenciales</label
-      >
-    </div>
-    <div class="center">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email" id="emailLogin" formControlName="email" type="email">
+      <mat-error *ngIf="loginForm.get('email').invalid">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" id="emailLogin" formControlName="password" type="password">
+      <mat-error *ngIf="loginForm.get('password').invalid">
+        Ccontrasea incorrecta!!!
+      </mat-error>
+    </mat-form-field>
+    <section class="full-width">
+      <mat-checkbox  formControlName="remember"  color="primary">Recordar credenciales</mat-checkbox>
+    </section>
+    <div class="center full-width">
+      <button mat-raised-button type="submit" color="primary">Login</button>
     </div>
   </form>
 </div>

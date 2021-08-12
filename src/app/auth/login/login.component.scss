@@ -1,4 +1,6 @@
-$bg-form-color: #d6ecf2;
+$bg-form-color: #3f51b5;
+$white-color: #ffff;
+
 
 .contenedor-center {
   display: flex;
@@ -6,22 +8,39 @@ $bg-form-color: #d6ecf2;
   justify-content: center;
   flex-wrap: wrap;
   height: 100vh;
+  background-color: darken($color: $white-color, $amount: 3);
 }
 
 .form-center {
+  display: flex;
+  flex-flow: row wrap;
   width: 50%;
-  background-color: $bg-form-color;
   padding: 15px 5px 5px 5px;
   border-radius: 5px;
-}
+  background-color: $white-color;
+  box-shadow: 10px 10px 15px $bg-form-color;
 
-.form-center img {
-  width: 25%;
-  height: 25%;
-  border-radius: 20px;
+  img {
+    width: 25%;
+    height: 100%;
+    border-radius: 50%;
+    padding-bottom: 10px;
+  }
 }
 
 .center {
   display: flex;
+  flex-basis: 100%;
   justify-content: center;
+}
+
+.full-width {
+  flex-basis: 90%;
+  margin: auto;
+}
+
+@media (max-width: 428px) {
+  .form-center {
+    width: 100%;
+  }
 }

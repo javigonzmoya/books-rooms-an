@@ -9,6 +9,16 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
+//angular material components
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+
+
 FullCalendarModule.registerPlugins([
   // register FullCalendar plugins
   dayGridPlugin,
@@ -23,6 +33,11 @@ FullCalendarModule.registerPlugins([
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule,
+
   ],
   exports: [
     FullCalendarModule,
@@ -30,6 +45,10 @@ FullCalendarModule.registerPlugins([
     NoFountComponent,
     RouterModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule,
   ],
 })
 export class CoreModule {}

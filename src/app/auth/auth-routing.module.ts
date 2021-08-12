@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authRoutes } from './auth.routes';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const rutasHijas: Routes = [
   {
-    path: 'auth',
-    children: authRoutes,
+    path: '',
+    children: [
+      {
+        path: '',
+        redirectTo: '/auth/login',
+        pathMatch: 'full',
+      },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+    ],
   },
 ];
 

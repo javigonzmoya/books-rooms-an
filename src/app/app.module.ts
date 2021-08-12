@@ -4,20 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 //componentes
 import { AppComponent } from './app.component';
-import { PublicModule } from './public/public.module';
 import { PrivateModule } from './private/private.module';
-import { AuthModule } from './auth/auth.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenHeadersInterceptor } from './core/interceptors/TokenHeadersInterceptor';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PublicModule,
-    PrivateModule,
-    AuthModule,
+  imports: [BrowserModule, AppRoutingModule, PrivateModule, BrowserAnimationsModule, HttpClientModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenHeadersInterceptor,
+      multi: true,
+    },
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
